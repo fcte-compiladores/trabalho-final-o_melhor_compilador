@@ -87,16 +87,11 @@ export function generateSVG(dataOrSegments, outFile, backgroundColorArg) {
 
   const curveEls = curves
     .map((cv) => {
+      console.log(cv.pts);
       const [x1, y1, x2, y2, x3, y3] = cv.pts;
-      const x0p = cv.x0 + offX,
-        y0p = height - (cv.y0 + offY);
-      const c1x = cv.x0 + x1 + offX,
-        c1y = height - (cv.y0 + y1 + offY);
-      const c2x = cv.x0 + x2 + offX,
-        c2y = height - (cv.y0 + y2 + offY);
       const x3p = cv.x0 + x3 + offX,
         y3p = height - (cv.y0 + y3 + offY);
-      return `<path d="M${x0p},${y0p} C${c1x},${c1y} ${c2x},${c2y} ${x3p},${y3p}" fill="none" stroke="${cv.color}" stroke-width="2"/>`;
+      return `<path d="M${x1},${y1} C${x2},${y2} ${x3},${y3} ${x3p},${y3p}" fill="none" stroke="${cv.color}" stroke-width="2"/>`;
     })
     .join("\n");
 
