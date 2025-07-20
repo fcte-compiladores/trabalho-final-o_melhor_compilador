@@ -38,11 +38,18 @@ A linguagem suporta os seguintes comandos:
 
 ## Instalação
 
-Para usar o compilador, você precisa ter o Node.js instalado. Em seguida, clone o repositório:
+Para usar o compilador, você precisa ter o Node.js instalado. Em seguida, clone o repositório e instale as dependências:
 
 ```bash
 git clone https://github.com/fcte-compiladores/trabalho-final-o_melhor_compilador.git
 cd trabalho-final-o_melhor_compilador
+npm install
+```
+
+Para executar os testes unitários, execute o comando:
+
+```bash
+npm test
 ```
 
 Para compilar um arquivo LOGO para SVG, use o seguinte comando:

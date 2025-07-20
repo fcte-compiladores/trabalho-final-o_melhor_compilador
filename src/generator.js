@@ -39,6 +39,10 @@ export function generateSVG(dataOrSegments, outFile, backgroundColorArg) {
     ys.push(cv.y0, cv.y0 + y1, cv.y0 + y2, cv.y0 + y3);
   });
 
+  // Ensure there's at least one point to calculate bounds
+  if (xs.length === 0) xs.push(0);
+  if (ys.length === 0) ys.push(0);
+
   const minX = Math.min(...xs),
     maxX = Math.max(...xs);
   const minY = Math.min(...ys),

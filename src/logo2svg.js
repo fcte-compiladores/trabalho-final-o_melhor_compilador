@@ -4,12 +4,12 @@ import { interpret } from "./interpreter.js";
 import { generateSVG } from "./generator.js";
 
 const [, , inputFile] = process.argv;
-const filename = inputFile.replace(/\\/g, "/").split("/");
-const baseName = filename[filename.length - 1].replace(/\.[^.]+$/, "") + ".svg";
 if (!inputFile) {
   console.error("Uso: node logo2svg.js <arquivo.logo> [<saida.svg>]");
   process.exit(1);
 }
+const filename = inputFile.replace(/\\/g, "/").split("/");
+const baseName = filename[filename.length - 1].replace(/\.[^.]+$/, "") + ".svg";
 const source = fs.readFileSync(inputFile, "utf-8");
 const ast = parse(source);
 console.log("=== AST ===\n", JSON.stringify(ast, null, 2));
