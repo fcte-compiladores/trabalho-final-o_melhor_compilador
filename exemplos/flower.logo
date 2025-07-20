@@ -1,0 +1,36 @@
+BG white
+
+RIGHT 90
+FORWARD 100 green
+
+FORWARD 50 
+BACK    50 red
+RIGHT   45
+
+FORWARD 50 
+BACK    50 orange
+RIGHT   45
+
+FORWARD 50 
+BACK    50 yellow
+RIGHT   45
+
+FORWARD 50 
+BACK    50 green
+RIGHT   45
+
+FORWARD 50 
+BACK    50 blue
+RIGHT   45
+
+FORWARD 50 
+BACK    50 purple
+RIGHT   45 
+
+FORWARD 50 
+BACK    50 pink
+RIGHT   45 
+
+FORWARD 50 
+BACK    50 brown
+RIGHT   45

@@ -1,0 +1,12 @@
+
+BG black
+
+LEFT 90
+FORWARD 50 white
+
+CURVE  30  0  30  60  0  60 red
+
+LEFT 90
+FORWARD 50 white
+
+CURVE  -30  0  -30 -60  0 -60 orange

@@ -1,0 +1,6 @@
+FORWARD 100 red
+BACK 50 green
+RIGHT 90
+FORWARD 50
+BACK 100 blue
+BG gray

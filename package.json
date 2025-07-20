@@ -1,0 +1,12 @@
+{
+  "name": "logo2svg",
+  "version": "1.0.0",
+  "description": "Logo-like language interpreter generating SVG",
+  "type": "module",
+  "main": "src/logo2svg.js",
+  "scripts": {
+    "start": "node src/logo2svg.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -1,79 +1,111 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Hppw7Zh2)
-# Trabalho Final
+# Compilador LOGO para SVG
 
-## Escopo e organização
+## Integrantes
 
-O trabalho é de tema livre dentro do escopo da disciplina de compiladores e
-consiste no desenvolvimento de alguma aplicação na área da disciplina (um
-interpretador para uma linguagem simples, compilador, analisadores de código,
-etc.)
+- Vitor Valerio Hoffmann - 222006211 - turma 16h
+- Ana Luiza Pfeilsticker de Oliveira Araujo Tristão - 222015060 - turma 16h
+- Atyrson Souto da Silva - 251005945 - turma 16h
 
-O trabalho pode ser feito em grupos de até 4 pessoas.
+## Introdução
 
-## Estrutura
+Este projeto apresenta um compilador para uma linguagem inspirada no LOGO, projetada para gerar imagens vetoriais no formato SVG. LOGO, uma linguagem de programação educacional, é famosa por sua abordagem de "turtle graphics", que permite aos usuários criar imagens complexas através de comandos simples que controlam um cursor gráfico, a "tartaruga".
 
-Os trabalhos devem ser entregues na atividade própria no [github-classrrom](...).
-Cada repositório deve ter uma estrutura parecida com a delineada abaixo:
+Nosso compilador reinterpreta essa ideia clássica, permitindo que desenvolvedores e entusiastas criem gráficos vetoriais de alta qualidade de forma programática. A implementação, desenvolvida em JavaScript, segue um pipeline de compilação clássico:
 
-* **README:** o arquivo README.md na base do repositório deve descrever os
-  detalhes da implementação do código. O README deve ter algumas seções 
-  obrigatórias:
-  - **Título**: nome do projeto
-  - **Integrantes**: lista com os nomes, matrículas e turma de cada integrante.
-  - **Introdução**: deve detalhar o que o projeto implementou, quais foram as
-    estratégias e algoritmos relevantes. Se o projeto implementa uma linguagem
-    não-comum ou um subconjunto de uma linguagem comum, deve conter alguns
-    exemplos de comandos nesta linguagem, descrendo a sua sintaxe e semântica,
-    quando necessário.
-  - **Instalação**: deve detalhar os passos para instalar as dependências e
-    rodar o código do projeto. Pode ser algo simples como *"Rode
-    `uv run lox hello.lox` para executar o interpretador."*, se a linguagem de
-    implementação permitir este tipo de facilidade.
+1.  **Análise Léxica (Tokenizer):** O processo começa com o `tokenizer`, que converte o código-fonte LOGO em uma série de tokens atômicos, como comandos (`FORWARD`), números (`100`) e símbolos (`[`).
+2.  **Análise Sintática (Parser):** Em seguida, o `parser` consome esses tokens para construir uma Árvore de Sintaxe Abstrata (AST). A AST é uma representação hierárquica da estrutura do código, essencial para a próxima fase.
+3.  **Interpretação (Interpreter):** O `interpreter` atravessa a AST, executando as instruções de forma semântica. Ele simula o comportamento da tartaruga, calculando as coordenadas e os caminhos que formarão a imagem final, mas sem renderizar diretamente. Em vez disso, ele cria uma representação de dados intermediária.
+4.  **Geração de Código (Generator):** Finalmente, o `generator` utiliza essa representação intermediária para produzir o código SVG final. O resultado é um arquivo `.svg` limpo e otimizado, que pode ser visualizado em qualquer navegador moderno ou editor de imagens vetoriais.
 
-    Você pode usar gerenciadores de pacotes específicos de linguagens populares
-    como uv, npm, cargo, etc, containers Docker/Podman, ou `.nix`.
-  - **Exemplos**: o projeto deve conter uma pasta "exemplos" com alguns arquivos
-    na linguagem de programação implementada. Deve conter exemplos com graus
-    variáveis de complexidade. Algo como: hello world, fibonacci, função
-    recursiva, alguma estrutura de dados e para finalizar um algoritmo um pouco
-    mais elaborado como ordenamento de listas, busca binária, etc.
-    
-    Note que isto é apenas um guia da ordem de dificuldade dos problemas.
-    Algumas linguagens sequer permitem a implementação de alguns dos exemplos
-    acima.
-  - **Referências**: descreva as referências que você utilizou para a
-    implementação da linguagem. Faça uma breve descrição do papel de cada
-    referência ou como ela foi usada no projeto. Caso você tenha usado algum 
-    código existente como referência, descreva as suas contribuições originais
-    para o projeto.
-  - **Estrutura do código**: faça uma descrição da estrutura geral do código
-    discutindo os módulos, classes, estruturas de dados ou funções principais. 
-    Explicite onde as etapas tradicionais de compilação (análise léxica, 
-    sintática, semântica, etc) são realizadas, quando relevante.
-  - **Bugs/Limitações/problemas conhecidos**: discuta as limitações do seu
-    projeto e problemas conhecidos e coisas que poderiam ser feitas para
-    melhorá-lo no futuro. Note: considere apenas melhorias incrementais e não
-    melhorias grandes como: "reimplementar tudo em Rust".
-* **Código:** O codigo fonte deve estar presente no repositório principal junto com
-  a declaração das suas dependências. Cada linguagem possui um mecanismo
-  específico para isso, mas seria algo como o arquivo pyproject.toml em Python
-  ou package.json no caso de Javascript.
+Este projeto não apenas serve como um exercício prático nos princípios da construção de compiladores, mas também oferece uma ferramenta divertida e poderosa para a criação de arte generativa e visualizações de dados.
 
-## Critérios
+### Comandos Suportados
 
-Cada trabalho começa com 100% e pode receber penalizações ou bônus de acordo com
-os critérios abaixo:
+A linguagem suporta os seguintes comandos:
 
-- Ausência do README: -50%
-- Instruções de instalação não funcionam: até -20%
-- Referências não atribuídas ou falta de referâncias: -10%
-- Código confuso ou mal organizado: até -15%
-- Falta de clareza em apresentar as técnicas e etapas de compilação: -15%
-- Bugs e limitações sérias na implementação: até -25%
-- Escopo reduzido, ou implementação insuficiente: até 25%
-- Uso de código não atribuído/plágio: até -100%
-- Repositório bem estruturado e organizado: até 10%
-- Linguagem com conceitos originais/interessantes: até +15%
-- Testes unitários: até +15%, dependendo da cobertura
+- `FORWARD <dist>` ou `FD <dist>`: Move a tartaruga para a frente pela distância especificada.
+- `BACK <dist>` ou `BK <dist>`: Move a tartaruga para trás pela distância especificada.
+- `RIGHT <angle>` ou `RT <angle>`: Vira a tartaruga para a direita pelo ângulo especificado.
+- `LEFT <angle>` ou `LT <angle>`: Vira a tartaruga para a esquerda pelo ângulo especificado.
+- `PENUP` ou `PU`: Levanta a caneta, de modo que a tartaruga não desenhe ao se mover.
+- `PENDOWN` ou `PD`: Abaixa a caneta, de modo que a tartaruga desenhe ao se mover.
+- `BACKGROUND <color>` ou `BG <color>`: Define a cor de fundo da imagem. A cor pode ser um nome de cor em inglês (ex: `red`, `blue`) ou um código hexadecimal (ex: `#FF0000`).
+- `REPEAT <count> [ <commands> ]`: Repete uma lista de comandos um determinado número de vezes.
+- `CIRCLE <radius>`: Desenha um círculo com o raio especificado.
+- `RECTANGLE <width> <height>`: Desenha um retângulo com a largura e altura especificadas.
+- `POLYGON <sides> <size>`: Desenha um polígono regular com o número de lados e tamanho especificados.
+- `CURVE <x1> <y1> <x2> <y2> <x3> <y3>`: Desenha uma curva de Bézier.
 
-Após aplicar todos os bônus, a nota é truncada no intervalo 0-100%. 
+## Instalação
+
+Para usar o compilador, você precisa ter o Node.js instalado. Em seguida, clone o repositório:
+
+```bash
+git clone https://github.com/fcte-compiladores/trabalho-final-o_melhor_compilador.git
+cd trabalho-final-o_melhor_compilador
+```
+
+Para compilar um arquivo LOGO para SVG, use o seguinte comando:
+
+```bash
+npm start exemplos/meu-arquivo.logo
+```
+
+Isso irá gerar um arquivo `meu-arquivo.svg` no diretório raiz.
+
+## Exemplos
+
+A pasta `exemplos` contém vários exemplos de código LOGO, desde formas simples até desenhos mais complexos.
+
+- `quadrado.logo`: Desenha um quadrado.
+- `hexagono.logo`: Desenha um hexágono.
+- `estrela.logo`: Desenha uma estrela.
+- `flor.logo`: Desenha uma flor usando o comando `REPEAT`.
+- `galaxia.logo`: Desenha uma galáxia usando o comando `REPEAT` e `CURVE`.
+
+etc...
+
+## Estrutura do Código
+
+O código-fonte está localizado na pasta `src` e está dividido nos seguintes módulos:
+
+- `tokenizer.js`: Contém a função `tokenize`, que realiza a análise léxica.
+- `parser.js`: Contém a função `parse`, que realiza a análise sintática e constrói a AST.
+- `interpreter.js`: Contém a função `interpret`, que executa as instruções da AST.
+- `generator.js`: Contém a função `generateSVG`, que gera o código SVG final.
+- `logo2svg.js`: O script principal que lê um arquivo LOGO, o compila e salva o resultado em um arquivo SVG.
+
+## Bugs/Limitações/Problemas Conhecidos
+
+- O tratamento de erros é básico. Erros de sintaxe ou comandos desconhecidos podem não ser reportados de forma clara.
+- A linguagem não suporta variáveis, procedimentos ou outras estruturas de controle mais avançadas.
+- A linguagem não aceita comentários.
+- A linguagem atual não possui funcionalidade de animação (gerar gif's etc...).
+
+## Referências
+
+### Linguagem Logo & Turtle Graphics
+
+- Papert, Seymour. _Mindstorms: Children, Computers, and Powerful Ideas_. Basic Books, 1980.
+- Wikipedia: “Logo (programming language)”. Disponível em: https://en.wikipedia.org/wiki/Logo_(programming_language)
+- Wikipedia: “Turtle graphics”. Disponível em: https://en.wikipedia.org/wiki/Turtle_graphics
+
+### Compiladores
+
+- Aho, Alfred V.; Sethi, Ravi; Ullman, Jeffrey D. _Compilers: Principles, Techniques, and Tools_ (2ª ed.). Addison-Wesley, 2006.
+
+### SVG
+
+- W3C. _Scalable Vector Graphics (SVG) 1.1 Specification_. Disponível em: https://www.w3.org/TR/SVG11/
+- MDN Web Docs: “SVG `<circle>` element”. Disponível em: https://developer.mozilla.org/docs/Web/SVG/Element/circle
+- MDN Web Docs: “SVG `<rect>` element”. Disponível em: https://developer.mozilla.org/docs/Web/SVG/Element/rect
+- MDN Web Docs: “SVG `<path>` element”. Disponível em: https://developer.mozilla.org/docs/Web/SVG/Element/path
+
+### Gramáticas
+
+- ISO/IEC 14977. _Extended BNF (EBNF) — The ISO Standard for Syntax Notation_.
+- Wikipedia: “Extended Backus–Naur form”. Disponível em: https://en.wikipedia.org/wiki/Extended_Backus–Naur_form
+
+### Curvas Bézier
+
+- Wikipedia: “Bézier curve”. Disponível em: https://en.wikipedia.org/wiki/B%C3%A9zier_curve

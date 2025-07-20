@@ -1,0 +1,10 @@
+
+BG lightgray
+
+REPEAT 8 [
+  REPEAT 4 [
+    FORWARD 80 red
+    RIGHT   90
+  ]
+  RIGHT 45
+]

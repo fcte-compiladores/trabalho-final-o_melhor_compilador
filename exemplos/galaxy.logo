@@ -1,0 +1,126 @@
+
+BG black
+
+LEFT 90
+
+FORWARD 20
+BACK    20 red
+RIGHT   25
+
+FORWARD 25
+BACK    25 orange
+RIGHT   25
+
+FORWARD 30
+BACK    30 yellow
+RIGHT   25
+
+FORWARD 35
+BACK    35 green
+RIGHT   25
+
+FORWARD 40
+BACK    40 blue
+RIGHT   25
+
+FORWARD 45
+BACK    45 purple
+RIGHT   25
+
+FORWARD 50
+BACK    50 pink
+RIGHT   25
+
+FORWARD 55
+BACK    55 purple
+RIGHT   25
+
+FORWARD 60
+BACK    60 white
+RIGHT   25
+
+FORWARD 100
+BACK    100 red
+RIGHT   30
+
+FORWARD 100
+BACK    100 orange
+RIGHT   30
+
+FORWARD 100
+BACK    100 yellow
+RIGHT   30
+
+FORWARD 100
+BACK    100 green
+RIGHT   30
+
+FORWARD 100
+BACK    100 blue
+RIGHT   30
+
+FORWARD 100
+BACK    100 purple
+RIGHT   30
+
+FORWARD 100
+BACK    100 pink
+RIGHT   30
+
+FORWARD 100
+BACK    100 purple
+RIGHT   30
+
+FORWARD 100
+BACK    100 white
+RIGHT   30
+
+FORWARD 100
+BACK    100 grey
+
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
+
+RIGHT   30
+FORWARD 5
+BACK    5 white
